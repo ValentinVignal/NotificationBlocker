@@ -16,3 +16,6 @@ local.properties
 
 deployment_cert.der
 upload-keystore.jks
+
+.kotlin
+.idea

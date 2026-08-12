@@ -1,7 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    id("com.google.devtools.ksp") version "1.9.20-1.0.14"
+    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.google.devtools.ksp)
     id("kotlin-kapt")
 }
 
@@ -32,22 +33,22 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     buildFeatures {
         compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.15"
     }
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
+    }
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.fromTarget("17"))
     }
 }
 
@@ -76,4 +77,15 @@ dependencies {
     implementation("androidx.room:room-runtime:${rootProject.extra["room_version"]}")
     ksp("androidx.room:room-compiler:${rootProject.extra["room_version"]}")
     implementation("androidx.room:room-ktx:${rootProject.extra["room_version"]}")
+
+    implementation(libs.androidx.material3)
+}
+
+// Add this at the very bottom of app/build.gradle.kts
+configurations.all {
+    resolutionStrategy {
+        force("androidx.core:core-ktx:1.15.0")
+        force("androidx.activity:activity-compose:1.9.3")
+        force("androidx.navigation:navigation-compose:2.8.5")
+    }
 }
