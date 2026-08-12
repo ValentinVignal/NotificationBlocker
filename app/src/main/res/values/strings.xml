@@ -18,4 +18,5 @@
     <string name="global_controls">Global controls</string>
     <string name="groups">Groups</string>
     <string name="applications">Applications</string>
+    <string name="apps_in_group">Apps in group</string>
 </resources>

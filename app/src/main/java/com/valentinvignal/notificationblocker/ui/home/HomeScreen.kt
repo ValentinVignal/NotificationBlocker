@@ -3,6 +3,7 @@ package com.valentinvignal.notificationblocker.ui.home
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
@@ -91,7 +92,9 @@ fun HomeBody(
 
 
 
-    LazyColumn() {
+    LazyColumn(
+        contentPadding = PaddingValues(bottom = 80.dp)
+    ) {
         item {
             SectionHeader(stringResource(R.string.global_controls))
             Surface(
@@ -186,7 +189,9 @@ fun HomeBody(
                             painter = rememberDrawablePainter(application.icon),
                             contentDescription = application.name,
                             contentScale = ContentScale.Crop,
-                            modifier = Modifier.size(64.dp),
+                            modifier = Modifier
+                                .size(64.dp)
+                                .padding(4.dp),
                         )
                     }
                 },
