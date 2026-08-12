@@ -15,4 +15,7 @@
     <string name="delete">Delete</string>
     <string name="delete_question">Delete?</string>
     <string name="all_applications">All applications</string>
+    <string name="global_controls">Global controls</string>
+    <string name="groups">Groups</string>
+    <string name="applications">Applications</string>
 </resources>

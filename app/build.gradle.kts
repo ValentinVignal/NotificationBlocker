@@ -49,6 +49,7 @@ android {
 kotlin {
     compilerOptions {
         jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.fromTarget("17"))
+        freeCompilerArgs.add("-P=plugin:org.jetbrains.kotlin.plugin.compose:strongSkipping=true")
     }
 }
 
